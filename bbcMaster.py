@@ -3,20 +3,41 @@ import re
 import json
 from bs4 import BeautifulSoup
 
-targetfile = "result.json"
+class Article:
+  article_paragraphs = {}
+  article_headers = {}
+  article_title = ""
 
-url = "https://www.bbc.com/"
-response = requests.get(url)
+def createArticle(targeturl):
+  article_html = requests.get(targeturl)
+  article_soup = BeautifulSoup(article_html, 'html.parser')
+  new_article = Article
+  new_article.article_headers = article_soup.find('article').find_all('h2')
+  new_article.article_title = article_soup.find('article').find_all('h1')
+  new_article.article_paragraphs = article_soup.find('article').find_all('p')
+  return new_article
 
-soup = BeautifulSoup(response.text, 'html.parser')
+def getFormattedUrl(href_string, top_url):
+  new_string = re.findall('"([^"]*)"', p)[0]
+  if top_url not in new_string:
+    new_string = top_url + new_string
+  return new_string
 
-articlebox = soup.find(class_="sc-d8331fdf-2 dGLAfP")
-articleLinkHTML = articlebox.find('a')
+def scrapetheBBC(targetFile):
+  target_file = targetFile
+  url = "https://www.bbc.com/"
+  full_html = requests.get(url)
+  soup = BeautifulSoup(full_html.text, 'html.parser')
 
-firstHeadersText = []
-firstHeaders = soup.find_all('p')
-for header in firstHeaders:
-  firstHeadersText.append(header.getText())
+  article_area = soup.find(class_="sc-cd6075cf-0 cJhFtM")
+
+  article_links = article_area.find_all('a')
+  for link in article_links:
+    if "href" in link:
+      createArticle(getFormattedUrl(link.text))
+
+
+
 
 def GetTextFromList(list):
   finalString = "";
