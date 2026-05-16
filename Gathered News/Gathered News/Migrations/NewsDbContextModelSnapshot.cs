@@ -29,6 +29,10 @@ namespace Gathered_News.Migrations
                     b.Property<string>("ContentJson")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("ImageUrl")
+                        .HasMaxLength(2000)
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("ImportedAt")
                         .HasColumnType("TEXT");
 

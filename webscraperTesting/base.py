@@ -81,6 +81,21 @@ class BaseNewsScraper:
     def scrape_article(self, url):
         raise NotImplementedError
 
+    def get_primary_image(self, soup):
+        og = soup.find("meta", property="og:image")
+        if og and og.get("content"):
+            return og["content"].strip()
+
+        for img in soup.find_all("img", src=True):
+            src = img["src"].strip()
+            if not src or src.startswith("data:"):
+                continue
+            if src.startswith("http"):
+                return src
+            return self.normalise_url(src)
+
+        return None
+
     def normalise_url(self, href):
         if href.startswith("http"):
             return href.split("?")[0].split("#")[0]

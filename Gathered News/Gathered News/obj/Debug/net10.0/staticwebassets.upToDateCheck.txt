@@ -1,3 +1,4 @@
+wwwroot\css\lanes.css
 wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\js\site.js
@@ -61,6 +62,8 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\js\lanes.js
+C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\wwwroot\css\lanes.css
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\wwwroot\css\site.css
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\wwwroot\favicon.ico
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\wwwroot\js\site.js
@@ -123,3 +126,4 @@ C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\wwwroot\lib\jquery
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\wwwroot\lib\jquery\dist\jquery.slim.min.js
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\wwwroot\lib\jquery\dist\jquery.slim.min.map
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\wwwroot\lib\jquery\LICENSE.txt
+C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\wwwroot\js\lanes.js

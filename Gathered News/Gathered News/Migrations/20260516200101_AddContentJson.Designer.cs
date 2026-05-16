@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gathered_News.Migrations
 {
     [DbContext(typeof(NewsDbContext))]
-    [Migration("20260516011409_AddContentJson")]
+    [Migration("20260516200101_AddContentJson")]
     partial class AddContentJson
     {
         /// <inheritdoc />
@@ -30,6 +30,10 @@ namespace Gathered_News.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ContentJson")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ImageUrl")
+                        .HasMaxLength(2000)
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("ImportedAt")

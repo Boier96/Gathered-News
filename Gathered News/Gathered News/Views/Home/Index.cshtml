@@ -1,23 +1,96 @@
-﻿@model IEnumerable<Gathered_News.Models.ArticleModel>
+﻿@model Gathered_News.ViewModels.NewsLaneViewModel
+@{
+    ViewData["Title"] = "Gathered News";
+}
 
-<div class="container py-4">
-    <h1 class="mb-4">Latest Articles</h1>
+@section Styles {
+    <link rel="stylesheet" href="~/css/lanes.css" asp-append-version="true" />
+}
 
-    <div class="row g-4">
-        @foreach (var article in Model)
-        {
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 shadow-sm">
+<header class="site-header">
+    <div class="site-logo">Gathered<span>.</span></div>
+    <div class="header-meta" id="header-date"></div>
+</header>
+
+<div class="main-layout">
+
+    <aside class="sidebar sidebar-left">
+        <div class="sidebar-section-label">Filters</div>
+        <p class="settings-placeholder">filters n shi.</p>
+    </aside>
+
+    <div class="lane-wrapper" id="lane-left">
+        <div class="lane-fade-top"></div>
+        <div class="lane-inner" id="lane-left-inner">
+            @foreach (var article in Model.LeftLane)
+            {
+                <div class="article-card" data-article-id="@article.Id">
+                    @if (!string.IsNullOrEmpty(article.ImageUrl))
+                    {
+                        <img class="card-image" src="@article.ImageUrl" alt="" loading="lazy" />
+                    }
                     <div class="card-body">
-                        <h5 class="card-title">@article.Title</h5>
-                        <p class="text-muted small mb-2">@article.Source</p>
-                        @if (!string.IsNullOrWhiteSpace(article.Url))
-                        {
-                            <a href="@article.Url" target="_blank" class="btn btn-primary btn-sm">Read article</a>
-                        }
+                        <div class="card-source">@article.Source</div>
+                        <div class="card-title">@article.Title</div>
                     </div>
                 </div>
+            }
+        </div>
+        <div class="lane-fade-bottom"></div>
+    </div>
+
+    <div class="lane-wrapper lane-wrapper-right" id="lane-right">
+        <div class="lane-fade-top"></div>
+        <div class="lane-inner" id="lane-right-inner">
+            @foreach (var article in Model.RightLane)
+            {
+                <div class="article-card" data-article-id="@article.Id">
+                    @if (!string.IsNullOrEmpty(article.ImageUrl))
+                    {
+                        <img class="card-image" src="@article.ImageUrl" alt="" loading="lazy" />
+                    }
+                    <div class="card-body">
+                        <div class="card-source">@article.Source</div>
+                        <div class="card-title">@article.Title</div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="lane-fade-bottom"></div>
+    </div>
+
+    <aside class="sidebar sidebar-right">
+        <div class="profile-block">
+            <div class="profile-avatar" id="profile-avatar"></div>
+            <div class="profile-username" id="profile-username">Reader</div>
+        </div>
+        <div class="sidebar-section-label">Recently Visited</div>
+        <div class="recent-list" id="recent-list">
+            <span class="settings-placeholder">No articles visited yet.</span>
+        </div>
+    </aside>
+
+</div>
+
+<div class="overlay" id="article-overlay">
+    <div class="overlay-panel">
+        <button class="overlay-close" id="overlay-close">esc</button>
+        <div class="overlay-outlet-bar">
+            <div class="outlet-meta">
+                <div class="outlet-name"></div>
+                <div class="outlet-desc"></div>
             </div>
-        }
+            <div class="outlet-stats"></div>
+        </div>
+        <div class="overlay-content">
+            <img class="overlay-image" src="" alt="" />
+            <h1 class="overlay-title"></h1>
+            <div class="overlay-body"></div>
+            <a class="overlay-link" href="#" target="_blank" rel="noopener noreferrer">Read original article</a>
+        </div>
     </div>
 </div>
+
+@section Scripts {
+    <script src="~/js/lanes.js" asp-append-version="true"></script>
+}

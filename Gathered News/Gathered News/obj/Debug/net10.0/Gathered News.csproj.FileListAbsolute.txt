@@ -212,4 +212,7 @@ C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\Gathered News.genruntimeconfig.cache
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\ref\Gathered News.dll
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\wxcl13f9re-{0}-3kg08mexri-3kg08mexri.gz
+C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\Gathered News.sourcelink.json
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\1my8n90ni7-{0}-4g0yhzwcl7-4g0yhzwcl7.gz
+C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\hp0y9zloy4-{0}-wvepi2xvjr-wvepi2xvjr.gz

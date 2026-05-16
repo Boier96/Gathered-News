@@ -37,6 +37,8 @@ namespace Gathered_News.Services
                 return;
             }
 
+            await RemoveNonArticleRecordsAsync(cancellationToken);
+
             var files = Directory.EnumerateFiles(folder, "*.json", SearchOption.AllDirectories).ToList();
             _logger.LogInformation("Found {Count} JSON files.", files.Count);
 
@@ -148,6 +150,13 @@ namespace Gathered_News.Services
             var source = GetString(element, "source") ?? Path.GetFileNameWithoutExtension(filePath);
             var url = GetString(element, "url");
             var title = GetString(element, "title");
+            var imageUrl = GetString(element, "image_url");
+
+            if (!IsImportableCandidate(source, url, title))
+            {
+                _logger.LogInformation("Skipping non-article entry from {File}: {Title}", filePath, title ?? "(no title)");
+                return;
+            }
 
             var dedupKey = BuildDedupKey(url, source, title);
 
@@ -167,6 +176,7 @@ namespace Gathered_News.Services
                 Title = title ?? string.Empty,
                 Content = contentText,
                 ContentJson = contentJson,
+                ImageUrl = imageUrl,
                 RawJson = element.GetRawText(),
                 ImportedAt = DateTime.UtcNow
             };
@@ -222,6 +232,88 @@ namespace Gathered_News.Services
             return null;
         }
 
+
+        private async Task RemoveNonArticleRecordsAsync(CancellationToken cancellationToken)
+        {
+            var existingArticles = await _db.Articles
+                .ToListAsync(cancellationToken);
+
+            var invalidArticles = existingArticles
+                .Where(article => !IsImportableCandidate(article.Source, article.Url, article.Title))
+                .ToList();
+
+            if (invalidArticles.Count == 0)
+                return;
+
+            _logger.LogInformation("Removing {Count} non-article records already in the database.", invalidArticles.Count);
+
+            _db.Articles.RemoveRange(invalidArticles);
+            await _db.SaveChangesAsync(cancellationToken);
+        }
+
+        private static bool IsImportableCandidate(string? source, string? url, string? title)
+        {
+            if (string.IsNullOrWhiteSpace(title))
+                return false;
+
+            var normalizedTitle = NormalizeTitle(title);
+
+            if (normalizedTitle.Length == 0)
+                return false;
+
+            if (normalizedTitle.Equals("unknown title", StringComparison.OrdinalIgnoreCase))
+                return false;
+
+            if (BlockedTitles.Contains(normalizedTitle))
+                return false;
+
+            if (source?.Equals("cbc", StringComparison.OrdinalIgnoreCase) == true &&
+                normalizedTitle.StartsWith("About ", StringComparison.OrdinalIgnoreCase))
+            {
+                return false;
+            }
+
+            if (!string.IsNullOrWhiteSpace(url) && LooksLikeUtilityUrl(url))
+                return false;
+
+            return true;
+        }
+
+        private static string NormalizeTitle(string title)
+        {
+            return string.Join(" ", title.Split(new[] { ' ', '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries)).Trim();
+        }
+
+        private static bool LooksLikeUtilityUrl(string url)
+        {
+            var lower = url.Trim().ToLowerInvariant();
+
+            return UtilityUrlFragments.Any(fragment => lower.Contains(fragment));
+        }
+
+
+        // add more if you see them
+        private static readonly HashSet<string> BlockedTitles = new(StringComparer.OrdinalIgnoreCase)
+        {
+            "About CBC News",
+            "Unknown title",
+            "Data Privacy Policy",
+            "Legal notice",
+            "Accessibility statement"
+        };
+
+        private static readonly string[] UtilityUrlFragments =
+        {
+            "/about-cbc-news",
+            "/legal-notice",
+            "/accessibility-statement",
+            "/privacy-policy",
+            "/terms-of-use",
+            "/cookie-policy",
+            "/contact-us",
+            "/sitemap"
+        };
+
         private static string? BuildDedupKey(string? url, string? source, string? title)
         {
             if (!string.IsNullOrWhiteSpace(url))
@@ -232,7 +324,6 @@ namespace Gathered_News.Services
 
             return null;
         }
-
         private sealed record StagedArticle(string DedupKey, models.ArticleModel Article);
     }
 }

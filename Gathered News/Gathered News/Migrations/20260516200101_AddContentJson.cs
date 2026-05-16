@@ -22,6 +22,7 @@ namespace Gathered_News.Migrations
                     Title = table.Column<string>(type: "TEXT", maxLength: 500, nullable: false),
                     Content = table.Column<string>(type: "TEXT", nullable: true),
                     ContentJson = table.Column<string>(type: "TEXT", nullable: true),
+                    ImageUrl = table.Column<string>(type: "TEXT", maxLength: 2000, nullable: true),
                     ImportedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
                     RawJson = table.Column<string>(type: "TEXT", nullable: false)
                 },

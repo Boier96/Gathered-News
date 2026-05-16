@@ -26,6 +26,9 @@
                 entity.Property(a => a.Url)
                     .HasMaxLength(2000);
 
+                entity.Property(a => a.ImageUrl)
+                    .HasMaxLength(2000);
+
                 entity.Property(a => a.Source)
                     .HasMaxLength(200);
 

@@ -67,4 +67,5 @@ class GuardianScraper(BaseNewsScraper):
             "url": url,
             "title": title,
             "content": paragraphs,
+            "image_url": self.get_primary_image(soup),
         }
