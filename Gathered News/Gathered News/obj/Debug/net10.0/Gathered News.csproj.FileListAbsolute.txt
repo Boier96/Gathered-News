@@ -137,11 +137,8 @@ C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\scopedcss\bundle\Gathered News.styles.css
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\scopedcss\projectbundle\Gathered News.bundle.scp.css
-C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\6hzrwdumli-{0}-b9sayid5wm-b9sayid5wm.gz
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\5abks64rg5-{0}-61n19gt1b8-61n19gt1b8.gz
-C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\wxua0zk4at-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\77lrj363gt-{0}-bqjiyaj88i-bqjiyaj88i.gz
-C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\lwu6qwyase-{0}-c2jlpeoesf-c2jlpeoesf.gz
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\4nfs88wbv9-{0}-erw9l3u2r3-erw9l3u2r3.gz
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\l1r1af3e5q-{0}-aexeepp0ev-aexeepp0ev.gz
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\48wucwr59l-{0}-d7shbmvgxk-d7shbmvgxk.gz
@@ -214,5 +211,6 @@ C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\wxcl13f9re-{0}-3kg08mexri-3kg08mexri.gz
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\Gathered News.sourcelink.json
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
-C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\1my8n90ni7-{0}-4g0yhzwcl7-4g0yhzwcl7.gz
-C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\hp0y9zloy4-{0}-wvepi2xvjr-wvepi2xvjr.gz
+C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\1my8n90ni7-{0}-eusjvxwxo5-eusjvxwxo5.gz
+C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\hp0y9zloy4-{0}-ygero6eq3w-ygero6eq3w.gz
+C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\lwu6qwyase-{0}-sqicdr28u7-sqicdr28u7.gz

@@ -1,4 +1,5 @@
 ﻿(function () {
+    // define some variables (allegedly)
     'use strict';
 
     var SCROLL_SPEED = 104;
@@ -54,7 +55,7 @@
 
     function saveRecent(list) {
         try {
-            localStorage.setItem(RECENT_STORAGE_KEY, JSON.stringify(list));
+            localStorage.setItem(RECENT_STORAGE_KEY, JSON.stringify(list)); // never has so much been carrried by so few localstorages
         } catch (e) { }
     }
 
@@ -79,7 +80,7 @@
         var recent = getRecent();
 
         if (recent.length === 0) {
-            list.innerHTML = '<span class="settings-placeholder">No articles visited yet.</span>';
+            list.innerHTML = '<span class="settings-placeholder">No articles visited yet.</span>'; // magically set allat HYPErTEXtMARKUpLANGUAGe
             return;
         }
 
@@ -95,7 +96,7 @@
         list.innerHTML = html;
 
         list.querySelectorAll('.recent-item').forEach(function (el) {
-            el.addEventListener('click', function () {
+            el.addEventListener('click', function () { // listen to me, I am the click now
                 var id = parseInt(this.dataset.articleId, 10);
                 var match = getRecent().find(function (r) { return r.id === id; });
                 if (match) {
@@ -105,7 +106,7 @@
         });
     }
 
-    function escapeHtml(str) {
+    function escapeHtml(str) { // stop putting arrows in your text gurt
         return String(str)
             .replace(/&/g, '&amp;')
             .replace(/</g, '&lt;')
@@ -127,8 +128,8 @@
 
         attachCardClicks(inner);
 
-        requestAnimationFrame(function () {
-            requestAnimationFrame(function () {
+        requestAnimationFrame(function () { // there seems to be some issue with the time it takes to init the other things
+            requestAnimationFrame(function () { // thus we call it twice, giving it more time, which is dirty and not good, but hasn't failed yet
                 var halfH = inner.scrollHeight / 2;
                 var duration = halfH / SCROLL_SPEED;
                 inner.style.animationDuration = duration + 's';
@@ -162,6 +163,7 @@
     function openOverlay(id, fallbackUrl) {
         overlay.classList.add('active');
 
+        // gimme allat
         var titleEl = overlay.querySelector('.overlay-title');
         var bodyEl = overlay.querySelector('.overlay-body');
         var imgEl = overlay.querySelector('.overlay-image');
@@ -170,8 +172,9 @@
         var outletDescEl = overlay.querySelector('.outlet-desc');
         var outletStatsEl = overlay.querySelector('.outlet-stats');
 
+        // there is a tendency to tweak
         titleEl.textContent = '';
-        bodyEl.innerHTML = '<span class="overlay-loading">Loading...</span>';
+        bodyEl.innerHTML = '<span class="overlay-loading">loading...</span>';
         imgEl.style.display = 'none';
         linkEl.href = fallbackUrl || '#';
         outletNameEl.textContent = '';
@@ -185,24 +188,24 @@
         var controller = new AbortController();
         currentFetch = controller;
 
-        fetch('/Home/GetArticle/' + id, { signal: controller.signal })
-            .then(function (res) {
+        fetch('/Home/GetArticle/' + id, { signal: controller.signal }) // fetch my cup peasant
+            .then(function (res) { 
                 if (!res.ok) throw new Error('not found');
                 return res.json();
             })
-            .then(function (article) {
+            .then(function (article) { // ever heard about a promise?
                 currentFetch = null;
 
                 var sourceKey = (article.source || '').toLowerCase();
                 var info = OUTLET_INFO[sourceKey] || {
                     name: article.source,
-                    description: 'Independent news outlet.',
-                    founded: '—',
-                    hq: '—',
-                    reach: '—'
+                    description: 'type shit.',
+                    founded: 'if ur seeing',
+                    hq: 'all this',
+                    reach: 'ur cooked'
                 };
 
-                outletNameEl.textContent = info.name;
+                outletNameEl.textContent = info.name; // set the stats n shi
                 outletDescEl.textContent = info.description;
                 outletStatsEl.innerHTML = [
                     ['Founded', info.founded],
@@ -233,7 +236,7 @@
                         return '<p>' + escapeHtml(p) + '</p>';
                     }).join('');
                 } else {
-                    bodyEl.innerHTML = '<p class="overlay-loading">No content available for this article.</p>';
+                    bodyEl.innerHTML = '<p class="overlay-loading">ur article sucks gurt</p>';
                 }
 
                 overlayPanel.scrollTop = 0;
@@ -247,7 +250,7 @@
             })
             .catch(function (err) {
                 if (err.name === 'AbortError') return;
-                bodyEl.innerHTML = '<p class="overlay-loading">Could not load article content.</p>';
+                bodyEl.innerHTML = '<p class="overlay-loading">we couldnt load allat cuz</p>';
             });
     }
 
@@ -262,12 +265,7 @@
     function initProfile() {
         var usernameEl = document.getElementById('profile-username');
         var avatarEl = document.getElementById('profile-avatar');
-        var stored = '';
-        try {
-            stored = localStorage.getItem('gn_username') || 'Reader';
-        } catch (e) {
-            stored = 'Reader';
-        }
+        var stored = "Reader"; // hardcoded for now
         if (usernameEl) usernameEl.textContent = stored;
         if (avatarEl) avatarEl.textContent = stored.charAt(0).toUpperCase();
     }
@@ -281,7 +279,7 @@
         el.textContent = days[now.getDay()] + ', ' + months[now.getMonth()] + ' ' + now.getDate() + ' ' + now.getFullYear();
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function () { // master
         overlay = document.getElementById('article-overlay');
         overlayPanel = overlay ? overlay.querySelector('.overlay-panel') : null;
         overlayClose = document.getElementById('overlay-close');

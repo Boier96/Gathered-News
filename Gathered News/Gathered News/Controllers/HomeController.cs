@@ -16,7 +16,7 @@ namespace Gathered_News.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var cutoff = DateTime.UtcNow.AddHours(-24);
+            var cutoff = DateTime.UtcNow.AddHours(-24); // hardcoded for now
 
             var recent = await _db.Articles
                 .AsNoTracking()

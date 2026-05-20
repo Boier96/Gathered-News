@@ -50,26 +50,6 @@
   },
   {
     "source": "cbc",
-    "url": "https://www.cbc.ca/news/canada/north/yukoner-presumptively-positive-hantavirus-9.7202481",
-    "title": "Yukoner isolating in B.C. tests presumptively positive for hantavirus",
-    "content": [
-      "One of two Yukoners who have been isolating in British Columbia after hantavirus broke out on their cruise ship has now presumptively tested positive for the virus.",
-      "The couple, who are in their 70s, were required to isolate for a minimum of 21 days after vacationing on the MV Hondius. After arriving in Victoria earlier this week along with two other Canadians, they have remained in B.C. in order to be closer to emergency health care if needed.",
-      "They were among 10 Canadians who,as of May 8, were identified as potentially being exposed to the virus. The others include two from Alberta,three from Ontario, and one from Quebec.",
-      "\"Clearly, this is not what we hoped for, but it is what we planned for,\" saidDr. Bonnie Henry, B.C.’s provincial health officer.",
-      "Henry said the couple had no direct contact with the people who fell ill on the ship. But two days ago, one personstarted to develop mild symptoms, including fever and headache.",
-      "Henry said the individual was assessed and tested at a hospital in Victoria, andtheB.C. Centre for Disease Control confirmed a presumptive positive test result of the Andes strain of hantavirusonFriday.",
-      "That result still needs to be confirmed by a microbiology lab in Winnipeg. The person is still in hospital in isolation and considered stable. Their partner was evaluated and tested negative, and is being monitored in hospital.",
-      "\"The overall risk picture in the Yukon is certainly low for this,” said Dr. Sudit Ranade,theterritory's chief medical officer of health, speaking at a news conference held in Whitehorse earlier this week.",
-      "\"But we're watching very, very carefully around the world to see what happens in terms of what additional cases might we see from the boat and what additional cases might we see from those cases.\"",
-      "Hantavirus usually spreads when people inhale contaminated residue of rodent droppings and isn’t easily transmitted between people. But the Andes virus detected in the cruise ship outbreak may be able to spread between people in rare cases.",
-      "\"I want to emphasize that hantavirus is a very different virus than the other respiratory viruses that we've been dealing with — like COVID, like influenza, like measles — and it remains one that we do not consider to have pandemic potential,\" Henry said on Saturday.",
-      "Three people have died since the outbreak began. World Health Organization officials continue to reassure the public, saying risk of wider spread remains low."
-    ],
-    "image_url": "https://i.cbc.ca/ais/8cc49311-a795-41f4-a771-4f7cef0374b5,1778013998297/full/max/0/default.jpg?im=Crop%2Crect%3D%280%2C210%2C4032%2C2268%29%3BResize%3D620"
-  },
-  {
-    "source": "cbc",
     "url": "https://www.cbc.ca/news/health/hantavirus-treatment-cure-vaccine-9.7201524",
     "title": "Hantavirus has no cure. Here's where researchers are at with treatments and vaccines",
     "content": [
@@ -93,7 +73,7 @@
       "American pharmaceutical company Moderna Inc. has also worked on hantavirus vaccines alongside the United States Army Medical Research Institute of Infectious Diseases and Korea University.",
       "\"These efforts are early-stage and ongoing,\" Moderna spokesperson Kelly Cunningham said in an email.",
       "The Vaccine and Infectious Disease Organization has been developing vaccines against two strains found in the Americas: Andes virus, found in South America, and Sin Nombre virus, the hantavirus strain linked to cases in Canada and the U.S., Warner said. The team will start animal tests this summer, but it could be years before rollout.",
-      "'Not something I would wish upon anyone': Hantavirus survivor reacts to outbreak",
+      "'Not something I would wish upon anyone': hantavirus survivor reacts to outbreak",
       "Without a public health emergency bigger than the current hantavirus outbreak, it's unlikely there would be a big enough push for a vaccine that would speed up the process, Warner said.",
       "\"It is a lengthy and long and expensive process, and you need backing and money and political will and a lot of factors just to get something across the line.\""
     ],
@@ -224,22 +204,32 @@
   },
   {
     "source": "cbc",
-    "url": "https://www.cbc.ca/news/world/hamas-chief-gaza-israel-9.7202240",
-    "title": "Israel kills Hamas military wing leader in strike on Gaza",
+    "url": "https://www.cbc.ca/news/canada/hamilton/port-colborne-battery-plant-1-5-billion-honda-electric-vehicles-9.7201313",
+    "title": "$1.5B battery separator plant in Port Colborne still a go despite Honda suspending electric vehicle plans",
     "content": [
-      "An Israeli airstrike on Gaza killed the chief of Hamas's military wing, the most senior official from the Palestinian militant group killed by Israel since an October U.S.-backed ceasefire agreement that was meant to halt fighting.",
-      "The Israeli military said on Saturday that Izz al-Din al-Haddad was killed in what it described as a precise strike on Gaza City on Friday. Israel has repeatedly carried out strikes on Gaza since the ceasefire started.",
-      "Hamas confirmed in a later statement that Haddad, who was born in 1970, was killed along with his wife and daughter. It described him as a central figure in directing combat operations and accused Israel of trying to achieve politically through killings what it had failed to achieve militarily.",
-      "At Al-Aqsa Martyrs mosque in central Gaza, a joint funeral was held on Saturday for Haddad, his wife and 19-year-old daughter.",
-      "Israel carried out at least two attacks on Gaza on Friday, killing seven Palestinians, including three women and a child, according to local medics. A Palestinian source said Haddad was killed in an Israeli strike on an apartment building.",
-      "Some 850 Palestinians have ​been killed in Israeli strikes since the ​October ceasefire, Gaza's Health Ministry says. Four Israeli soldiers were killed by militants during the same period, according to Israeli authorities. Hamas does not disclose figures for casualties among its fighters.",
-      "Israeli Prime Minister Benjamin Netanyahu and Defence Minister Israel Katz in a joint statement said Haddad, who was commander of Al-Qassam Brigades, was an architect of the Oct. 7, 2023, attacks launched by Hamas militants that precipitated Israel's ongoing assault on Gaza.",
-      "Haddad, who became the group's military chief in Gaza after Israel's killing of Mohammad Sinwar in May 2025, \"was responsible for the murder, abduction and harm inflicted on thousands of Israeli civilians [and] soldiers,\" they said.",
-      "Nicknamed \"the Ghost,\" Haddad had survived multiple assassination attempts by Israel, according to Hamas sources. Israel's military said he was one of Hamas's longest-serving commanders, rising through the ranks from the group's early establishment in the 1980s to hold several senior positions.",
-      "Israel and Hamas remain deadlocked in indirect talks to advance U.S. President Donald Trump's postwar plan for Gaza that is meant to end more than two years of fighting.",
-      "Israel has escalated its attacks in Gaza in the ​weeks since halting its joint bombing with the U.S. in Iran, redirecting its fire back on the ruined Palestinian territory where the military says Hamas fighters are tightening their grip."
+      "Work on the $1.56-billion Asahi Kasei battery separator plant in Port Colborne, Ont., is proceeding despite Honda Canada's announcement it has indefinitely suspended its $15-billion electric vehicle (EV) investment plans.",
+      "Honda cited changing business conditions for the suspension, which includes stalling plans for an EV plant and a stand-alone EV battery plant in Alliston, Ont.",
+      "Two years ago, Asahi Kasei and Honda jointly announced they'd agreed to form a joint venture out of an existing Asahi Kasei subsidiary in Canada, with Honda committing about $240 million for a 25 per cent stake in the Port Colborne plant.",
+      "The companies had said the target for commercial startup for the factory was 2027.",
+      "Asahi Kasei confirmed in a statement to CBC News on Friday that the Port Colborne plant will proceed regardless of Honda's latest announcement to definitively suspend its plans for an EV complex.",
+      "\"Asahi Kasei remains fully committed to the Port Colborne project and to the local Niagara community,\" said Christian OKeefe, external marketing and corporate communications specialist with Asahi Kasei America.",
+      "\"Construction and equipment installation remain on schedule, and commercial production is currently targeted for the first half of 2029 to align with evolving market conditions.\"",
+      "Asahi Kasei broke ground on the Port Colborne plant in November 2024.",
+      "Honda said in May 2025 that it had paused development of the EV projects, with plans to review where the EV market was in two years.",
+      "The indefinite suspension was announced Thursday afterHonda posted its first-ever full-year loss at423.9 billion yen ($3.68 billion Cdn).",
+      "It won't affect Honda's current jobs or production of Honda Civic and CR-V models at its existing Alliston plant, the company said. The EV expansion was expected to create 1,000 incremental manufacturing jobs at the facility in Ontario's Simcoe County.",
+      "WATCH | What's behind Honda indefinitely suspending its EV plant plans:",
+      "Honda pauses $15B investment in Canadian EV plants",
+      "Port Colborne Mayor Bill Steele said he and city officials have had regular meetings with Asahi Kasei officials, including one on Friday, addressing issues such as water and wastewater needs, and hydro needs.",
+      "\"They're fully committed to Port Colborne,\" Steele said. \"They continue to be a great partner with the city.",
+      "The fact the planned opening date has been pushed back two years isn't surprising given the scope of the project and how many trades are involved, said Steele.",
+      "\"We have 925 people a day working on it.\"",
+      "O'Keefe said that while Honda is an important partner, \"our long‑term strategy is focused on serving multiple customers and applications, and we continue to prepare our Canadian facility to support broader market demand as it develops.\"",
+      "CBC News has reached out to Asahi Kasei to clarify why the target commercial startup date of the plant is now 2029.",
+      "Asahi Kasei said the Port Colborne plant will be Canada's first large-scale, wet-process separator facility.",
+      "Battery separators play a critical role in lithium-ion batteries, enabling higher energy density and long-term durability, essential for EVs and other energy storage applications, the company said."
     ],
-    "image_url": "https://i.cbc.ca/ais/e3a75606-0e42-4416-ade3-aaa98b44baa0,1778929996880/full/max/0/default.jpg?im=Crop%2Crect%3D%280%2C132%2C5500%2C3093%29%3BResize%3D620"
+    "image_url": "https://i.cbc.ca/ais/89574bcb-8574-4b2e-9f3d-567de774b3f8,1778867553594/full/max/0/default.jpg?im=Crop%2Crect%3D%2860%2C0%2C1305%2C734%29%3BResize%3D620"
   },
   {
     "source": "cbc",
@@ -274,6 +264,25 @@
       "Do you have a compelling personal story that can bring understanding or help others? We want to hear from you. Here'smore info on how to pitch to us."
     ],
     "image_url": "https://i.cbc.ca/ais/8894dcaf-4056-4348-b8d0-caa0ed610fac,1778882815105/full/max/0/default.jpg?im=Crop%2Crect%3D%280%2C0%2C1920%2C1080%29%3BResize%3D620"
+  },
+  {
+    "source": "cbc",
+    "url": "https://www.cbc.ca/news/world/hamas-chief-gaza-israel-9.7202240",
+    "title": "Israel kills Hamas military wing leader in strike on Gaza",
+    "content": [
+      "An Israeli airstrike on Gaza killed the chief of Hamas's military wing, the most senior official from the Palestinian militant group killed by Israel since an October U.S.-backed ceasefire agreement that was meant to halt fighting.",
+      "The Israeli military said on Saturday that Izz al-Din al-Haddad was killed in what it described as a precise strike on Gaza City on Friday. Israel has repeatedly carried out strikes on Gaza since the ceasefire started.",
+      "Hamas confirmed in a later statement that Haddad, who was born in 1970, was killed along with his wife and daughter. It described him as a central figure in directing combat operations and accused Israel of trying to achieve politically through killings what it had failed to achieve militarily.",
+      "At Al-Aqsa Martyrs mosque in central Gaza, a joint funeral was held on Saturday for Haddad, his wife and 19-year-old daughter.",
+      "Israel carried out at least two attacks on Gaza on Friday, killing seven Palestinians, including three women and a child, according to local medics. A Palestinian source said Haddad was killed in an Israeli strike on an apartment building.",
+      "Some 850 Palestinians have ​been killed in Israeli strikes since the ​October ceasefire, Gaza's Health Ministry says. Four Israeli soldiers were killed by militants during the same period, according to Israeli authorities. Hamas does not disclose figures for casualties among its fighters.",
+      "Israeli Prime Minister Benjamin Netanyahu and Defence Minister Israel Katz in a joint statement said Haddad, who was commander of Al-Qassam Brigades, was an architect of the Oct. 7, 2023, attacks launched by Hamas militants that precipitated Israel's ongoing assault on Gaza.",
+      "Haddad, who became the group's military chief in Gaza after Israel's killing of Mohammad Sinwar in May 2025, \"was responsible for the murder, abduction and harm inflicted on thousands of Israeli civilians [and] soldiers,\" they said.",
+      "Nicknamed \"the Ghost,\" Haddad had survived multiple assassination attempts by Israel, according to Hamas sources. Israel's military said he was one of Hamas's longest-serving commanders, rising through the ranks from the group's early establishment in the 1980s to hold several senior positions.",
+      "Israel and Hamas remain deadlocked in indirect talks to advance U.S. President Donald Trump's postwar plan for Gaza that is meant to end more than two years of fighting.",
+      "Israel has escalated its attacks in Gaza in the ​weeks since halting its joint bombing with the U.S. in Iran, redirecting its fire back on the ruined Palestinian territory where the military says Hamas fighters are tightening their grip."
+    ],
+    "image_url": "https://i.cbc.ca/ais/e3a75606-0e42-4416-ade3-aaa98b44baa0,1778929996880/full/max/0/default.jpg?im=Crop%2Crect%3D%280%2C132%2C5500%2C3093%29%3BResize%3D620"
   },
   {
     "source": "cbc",
@@ -643,29 +652,32 @@
   {
     "source": "cbc",
     "url": "https://www.cbc.ca/news/world/congo-ebola-outbreak-9.7202245",
-    "title": "Unknown title",
-    "content": [],
-    "image_url": null
-  },
-  {
-    "source": "cbc",
-    "url": "https://www.cbc.ca/news/canada/kars4kids-ad-banned-false-advertising-9.7201634",
-    "title": "Unknown title",
-    "content": [],
-    "image_url": null
-  },
-  {
-    "source": "cbc",
-    "url": "https://www.cbc.ca/news/world/trump-xi-china-summit-analysis-9.7201162",
-    "title": "Unknown title",
-    "content": [],
-    "image_url": null
-  },
-  {
-    "source": "cbc",
-    "url": "https://www.cbc.ca/news/canada/saskatchewan/sask-may-long-weekend-weather-warning-9.7201543",
-    "title": "Unknown title",
-    "content": [],
-    "image_url": null
+    "title": "At least 80 deaths reported as Congo grapples with new Ebola outbreak",
+    "content": [
+      "At least 80 deaths have been reported in Congo's new Ebola disease outbreak in the eastern Ituri province, authorities said, as health workers raced on Saturday to intensify screening and contact tracing to contain the disease.",
+      "Officials firstannounced the outbreakon Friday, with 65 deaths and 246 suspected cases.",
+      "Meanwhile, Associated Press journalists in Ituri's capital, Bunia, interviewed locals who recounted their fears and spoke about the constant burials.",
+      "\"Every day, people are dying ... and this has been going on for about a week. In a single day, we bury two, three or even more people,\" said Jean Marc Asimwe, a resident of Bunia. \"At this point, we don't really know what kind of disease it is.\"",
+      "Congolese Health Minister Samuel Roger Kamba said late Friday that there have been eight laboratory-confirmed cases, among them four deaths.",
+      "WHO assisting Congo health officials after Ebola cases confirmed in remote province",
+      "Test results confirmed the Bundibugyo virus, a variant of the disease that has been less prominent in Congo's past outbreaks. This is Congo's 17th outbreak since Ebola first emerged in the country in 1976.",
+      "Ebola is highly contagious and can be contracted through bodily fluids such as vomit, blood or semen. The disease it causes is rare but severe and often fatal.",
+      "The suspected index case in the latest outbreak is a nurse who died at a hospital in Bunia, Kamba said, adding the case dates back three weeks to April 24.",
+      "The health minister did not say whether samples from the nurse were tested, but he added that the person presented symptoms suggestive of Ebola.",
+      "Uganda confirmed on Friday an Ebola case that authorities said was \"imported\" from Congo. The person died at the Kibuli Muslim Hospital in Uganda's capital, Kampala, on May 14.",
+      "The Africa Centres for Disease Control ​and Prevention had said it is concerned about the risk of further spread due to the proximity of affected areas to Uganda and South Sudan.",
+      "The body of the patient who died in Kampala was later taken back to Congo, and no other local case has been confirmed, Uganda's Health Ministry said.",
+      "On Saturday, people were being screened at the entrance of the Kibuli Muslim Hospital.",
+      "Ismail Kigongo, who resides in Kampala, said the new outbreak reminded him of his father, whom he lost during the COVID-19 pandemic. \"I really get scared because I remember burying my father without looking at his body,\" he said.",
+      "Kenya, Uganda's neighbour, said on Saturday that there is only a \"moderate risk of importation\" of the Ebola virus due to regional travel. Kenya's government said it has formed an Ebola preparedness team and strengthened surveillance at all points of entry.",
+      "Congo has experience in managing Ebola outbreaks but often faces logistical challenges to get expertise and supplies to affected regions.",
+      "As Africa's second-largest country by land area, Congo's provinces are far from one another and mostly battling conflict. Ituri, for instance, is about 1,000 kilometres from the nation's capital, Kinshasa, and is ravaged by violence from ISIS-backed militants.",
+      "The disease is so far confirmed in three health zones in Ituri province, including Bunia, as well as in Rwampara and Mongwalu, where the outbreak is concentrated.",
+      "Only 13 blood samples have been tested at the National Institute of Biomedical Research, eight returning positive with the Bundibugyo strain. The remaining five could not be analyzed due to an insufficient volume of samples, the health minister said.",
+      "In Bunia, businesses and regular activities at public places appeared to be normal on Friday.",
+      "Resident Adeline Awekonimungu said she hopes the outbreak is quickly contained.",
+      "\"My recommendation is that the government take this matter seriously and that it takes charge of the hospitals so that this matter can be brought under control,\" she said."
+    ],
+    "image_url": "https://i.cbc.ca/ais/0523240c-9da2-470f-9d12-99396a3c3c5a,1778931622181/full/max/0/default.jpg?im=Crop%2Crect%3D%280%2C285%2C5472%2C3078%29%3BResize%3D620"
   }
 ]

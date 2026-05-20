@@ -40,7 +40,7 @@ namespace Gathered_News.Services
             await RemoveNonArticleRecordsAsync(cancellationToken);
 
             var files = Directory.EnumerateFiles(folder, "*.json", SearchOption.AllDirectories).ToList();
-            _logger.LogInformation("Found {Count} JSON files.", files.Count);
+            _logger.LogInformation("found {Count} JSON files.", files.Count);
 
             if (files.Count == 0)
                 return;
@@ -124,14 +124,14 @@ namespace Gathered_News.Services
                 .ToList();
 
             _logger.LogInformation(
-                "Prepared {IncomingCount} articles, deduped to {DedupedCount}, inserting {InsertCount}.",
+                "prepared {IncomingCount} articles, deduped to {DedupedCount}, inserting {InsertCount}.",
                 stagedArticles.Count,
                 dedupedIncoming.Count,
                 toInsert.Count);
 
             if (toInsert.Count == 0)
             {
-                _logger.LogInformation("Nothing new to insert.");
+                _logger.LogInformation("nothing new to insert");
                 return;
             }
 
@@ -142,7 +142,7 @@ namespace Gathered_News.Services
 
             await tx.CommitAsync(cancellationToken);
 
-            _logger.LogInformation("Import completed successfully.");
+            _logger.LogInformation("completed successfully.");
         }
 
         private void TryAddArticle(List<StagedArticle> articles, JsonElement element, string filePath)
@@ -154,7 +154,7 @@ namespace Gathered_News.Services
 
             if (!IsImportableCandidate(source, url, title))
             {
-                _logger.LogInformation("Skipping non-article entry from {File}: {Title}", filePath, title ?? "(no title)");
+                _logger.LogInformation("skipping alleged non-article entry from {File}: {Title}", filePath, title ?? "(no title)");
                 return;
             }
 
@@ -162,7 +162,7 @@ namespace Gathered_News.Services
 
             if (string.IsNullOrWhiteSpace(dedupKey))
             {
-                _logger.LogWarning("Skipping article in {File} because it has no usable url/source/title.", filePath);
+                _logger.LogWarning("skipping article in {File} because it has no usable url/source/title.", filePath);
                 return;
             }
 
@@ -245,7 +245,7 @@ namespace Gathered_News.Services
             if (invalidArticles.Count == 0)
                 return;
 
-            _logger.LogInformation("Removing {Count} non-article records already in the database.", invalidArticles.Count);
+            _logger.LogInformation("removing {Count} non-article records already in the database.", invalidArticles.Count);
 
             _db.Articles.RemoveRange(invalidArticles);
             await _db.SaveChangesAsync(cancellationToken);

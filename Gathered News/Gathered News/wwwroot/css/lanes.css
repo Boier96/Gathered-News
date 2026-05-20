@@ -66,9 +66,9 @@ body {
     user-select: none;
 }
 
-    .site-logo span {
-        color: var(--accent);
-    }
+.site-logo span {
+    color: var(--accent);
+}
 
 .header-meta {
     font-family: 'IBM Plex Mono', monospace;
@@ -169,9 +169,9 @@ body {
     transition: background var(--transition-fast);
 }
 
-    .recent-item:last-child {
-        border-bottom: none;
-    }
+.recent-item:last-child {
+    border-bottom: none;
+}
 
 .recent-source {
     font-family: 'IBM Plex Mono', monospace;
@@ -237,7 +237,7 @@ body {
 }
 
     .lane-inner.paused {
-        animation-play-state: paused !important;
+        animation-play-state: paused !important; /* this is truly important (: */
     }
 
     .lane-inner.scroll-up {
