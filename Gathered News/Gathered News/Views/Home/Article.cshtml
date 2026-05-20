@@ -1,0 +1,99 @@
+@model Gathered_News.ViewModels.ArticleDetailViewModel
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<header class="site-header">
+    <a asp-controller="Home" asp-action="Index" class="site-logo site-logo-link">Gathered<span>.</span></a>
+    <div class="header-nav">
+        <a asp-controller="Home" asp-action="Index">News</a>
+        <a asp-controller="Archive" asp-action="Index">Archive</a>
+        @if (Model.IsAuthenticated)
+        {
+            <form asp-controller="Account" asp-action="Logout" method="post" class="inline-form">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="link-button">Logout</button>
+            </form>
+        }
+        else
+        {
+            <a asp-controller="Account" asp-action="Login">Login</a>
+            <a asp-controller="Account" asp-action="Register">Create account</a>
+        }
+    </div>
+    <div class="header-meta">Full article</div>
+</header>
+
+<div class="article-page">
+    <article class="article-shell">
+        <div class="article-topline">
+            <div>
+                <div class="card-source">@Model.Source</div>
+                <h1>@Model.Title</h1>
+            </div>
+            <div class="article-top-actions">
+                @if (Model.IsAuthenticated)
+                {
+                    <button type="button"
+                            class="archive-button"
+                            id="archive-toggle"
+                            data-article-id="@Model.Id"
+                            data-archived="@(Model.IsArchived ? "true" : "false")">
+                        @(Model.IsArchived ? "Remove from archive" : "Archive article")
+                    </button>
+                    <span class="archive-status" id="archive-status">@(Model.IsArchived ? "Saved to your archive" : "")</span>
+                }
+                else
+                {
+                    <a asp-controller="Account" asp-action="Login" class="archive-button archive-button-link">Login to archive</a>
+                }
+            </div>
+        </div>
+
+        @Html.AntiForgeryToken()
+
+        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+        {
+            <img class="article-image" src="@Model.ImageUrl" alt="" />
+        }
+
+        <div class="article-body">
+            @{
+                var content = Model.Content ?? string.Empty;
+                var paragraphs = content
+                    .Split(new[] { "\r\n\r\n", "\n\n" }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(p => p.Trim())
+                    .Where(p => p.Length > 0)
+                    .ToList();
+            }
+
+            @if (paragraphs.Count > 0)
+            {
+                foreach (var paragraph in paragraphs)
+                {
+                    <p>@paragraph</p>
+                }
+            }
+            else
+            {
+                <p class="empty-state">No article text was stored for this story.</p>
+            }
+        </div>
+
+        <div class="article-footer">
+            <a asp-controller="Archive" asp-action="Index" class="secondary-button">Back to archive</a>
+            @if (!string.IsNullOrWhiteSpace(Model.ReturnUrl))
+            {
+                <a href="@Model.ReturnUrl" class="secondary-button">Return</a>
+            }
+            @if (!string.IsNullOrWhiteSpace(Model.Url))
+            {
+                <a href="@Model.Url" target="_blank" rel="noopener noreferrer" class="secondary-button">Open source</a>
+            }
+        </div>
+    </article>
+</div>
+
+@section Scripts {
+    <script src="~/js/lanes.js" asp-append-version="true"></script>
+}

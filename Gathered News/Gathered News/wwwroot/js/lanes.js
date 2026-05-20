@@ -158,6 +158,9 @@
     var overlay = null;
     var overlayPanel = null;
     var overlayClose = null;
+    var archiveToggle = null;
+    var archiveStatus = null;
+    var requestToken = null;
     var currentFetch = null;
 
     function openOverlay(id, fallbackUrl) {
@@ -180,6 +183,8 @@
         outletNameEl.textContent = '';
         outletDescEl.textContent = '';
         outletStatsEl.innerHTML = '';
+        if (archiveToggle) archiveToggle.textContent = 'Archive article';
+        if (archiveStatus) archiveStatus.textContent = '';
 
         if (currentFetch) {
             currentFetch.abort();
@@ -189,7 +194,7 @@
         currentFetch = controller;
 
         fetch('/Home/GetArticle/' + id, { signal: controller.signal }) // fetch my cup peasant
-            .then(function (res) { 
+            .then(function (res) {
                 if (!res.ok) throw new Error('not found');
                 return res.json();
             })
@@ -214,6 +219,16 @@
                 ].map(function (pair) {
                     return '<span class="outlet-stat">' + pair[0] + ': ' + escapeHtml(pair[1]) + '</span>';
                 }).join('');
+
+                if (archiveToggle) {
+                    archiveToggle.dataset.articleId = article.id;
+                    archiveToggle.dataset.archived = article.isArchived ? 'true' : 'false';
+                    archiveToggle.textContent = article.isArchived ? 'Remove from archive' : 'Archive article';
+                }
+
+                if (archiveStatus) {
+                    archiveStatus.textContent = article.isArchived ? 'Saved to your archive' : '';
+                }
 
                 if (article.imageUrl) {
                     imgEl.src = article.imageUrl;
@@ -265,9 +280,41 @@
     function initProfile() {
         var usernameEl = document.getElementById('profile-username');
         var avatarEl = document.getElementById('profile-avatar');
-        var stored = "Reader"; // hardcoded for now
+        if (!usernameEl && !avatarEl) return;
+
+        var stored = usernameEl && usernameEl.textContent ? usernameEl.textContent.trim() : 'Reader';
         if (usernameEl) usernameEl.textContent = stored;
         if (avatarEl) avatarEl.textContent = stored.charAt(0).toUpperCase();
+    }
+
+    function getToken() {
+        if (requestToken) return requestToken;
+        var tokenInput = document.querySelector('input[name="__RequestVerificationToken"]');
+        requestToken = tokenInput ? tokenInput.value : null;
+        return requestToken;
+    }
+
+    function toggleArchive() {
+        if (!archiveToggle) return;
+        var articleId = archiveToggle.dataset.articleId;
+        if (!articleId) return;
+
+        fetch('/Archive/Toggle', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                'RequestVerificationToken': getToken() || ''
+            },
+            body: new URLSearchParams({ articleId: articleId })
+        })
+            .then(function (res) { return res.json(); })
+            .then(function (data) {
+                if (!data || !data.success) return;
+                var archived = !!data.archived;
+                archiveToggle.dataset.archived = archived ? 'true' : 'false';
+                archiveToggle.textContent = archived ? 'Remove from archive' : 'Archive article';
+                if (archiveStatus) archiveStatus.textContent = archived ? 'Saved to your archive' : 'Removed from archive';
+            });
     }
 
     function initHeaderDate() {
@@ -283,24 +330,27 @@
         overlay = document.getElementById('article-overlay');
         overlayPanel = overlay ? overlay.querySelector('.overlay-panel') : null;
         overlayClose = document.getElementById('overlay-close');
+        archiveToggle = document.getElementById('archive-toggle');
+        archiveStatus = document.getElementById('archive-status');
 
-        if (!overlay || !overlayClose) return;
+        if (overlay && overlayClose) {
+            overlayClose.addEventListener('click', closeOverlay);
+            overlay.addEventListener('click', function (e) {
+                if (e.target === overlay) closeOverlay();
+            });
 
-        overlayClose.addEventListener('click', closeOverlay);
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeOverlay();
+            });
 
-        overlay.addEventListener('click', function (e) {
-            if (e.target === overlay) closeOverlay();
-        });
+            initLane('lane-left', 'lane-left-inner', 'up');
+            initLane('lane-right', 'lane-right-inner', 'down');
+            renderRecent();
+        }
 
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') closeOverlay();
-        });
-
-        initLane('lane-left', 'lane-left-inner', 'up');
-        initLane('lane-right', 'lane-right-inner', 'down');
+        if (archiveToggle) archiveToggle.addEventListener('click', toggleArchive);
 
         initProfile();
         initHeaderDate();
-        renderRecent();
     });
 }());

@@ -1,0 +1,85 @@
+@model Gathered_News.ViewModels.ArchiveIndexViewModel
+@{
+    ViewData["Title"] = "Archive";
+}
+
+<header class="site-header">
+    <a asp-controller="Home" asp-action="Index" class="site-logo site-logo-link">Gathered<span>.</span></a>
+    <div class="header-nav">
+        <a asp-controller="Home" asp-action="Index">News</a>
+        <a asp-controller="Archive" asp-action="Index">Archive</a>
+        <form asp-controller="Account" asp-action="Logout" method="post" class="inline-form">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="link-button">Logout</button>
+        </form>
+    </div>
+    <div class="header-meta">Archive</div>
+</header>
+
+<div class="archive-page">
+    <section class="archive-panel">
+        <div class="archive-panel-head">
+            <div>
+                <h1>Archived articles</h1>
+                <p>Everything you saved is here.</p>
+            </div>
+            <a asp-controller="Home" asp-action="Index" class="secondary-button">Back to news</a>
+        </div>
+
+        @if (Model.Articles.Count == 0)
+        {
+            <div class="empty-state">You have not archived anything yet.</div>
+        }
+        else
+        {
+            <div class="archive-list">
+                @foreach (var article in Model.Articles)
+                {
+                    <article class="archive-item" data-archive-id="@article.ArchiveId">
+                        @if (!string.IsNullOrEmpty(article.ImageUrl))
+                        {
+                            <img src="@article.ImageUrl" alt="" class="archive-image" />
+                        }
+                        <div class="archive-item-body">
+                            <div class="card-source">@article.Source</div>
+                            <div class="card-title">@article.Title</div>
+                            <div class="archive-meta">Saved @article.ArchivedAt.ToLocalTime().ToString("g")</div>
+                            <div class="archive-actions">
+                                <a asp-controller="Home" asp-action="Article" asp-route-id="@article.ArticleId">Read full article</a>
+                                <button type="button" class="archive-remove" data-article-id="@article.ArticleId">Remove</button>
+                            </div>
+                        </div>
+                    </article>
+                }
+            </div>
+        }
+    </section>
+</div>
+
+@Html.AntiForgeryToken()
+
+@section Scripts {
+    <script>
+        (function () {
+            const token = document.querySelector('input[name="__RequestVerificationToken"]')?.value;
+            document.querySelectorAll('.archive-remove').forEach(function (button) {
+                button.addEventListener('click', async function () {
+                    const articleId = this.dataset.articleId;
+                    const item = this.closest('.archive-item');
+                    const response = await fetch('/Archive/Toggle', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                            'RequestVerificationToken': token
+                        },
+                        body: new URLSearchParams({ articleId: articleId })
+                    });
+
+                    if (response.ok && item) {
+                        item.remove();
+                    }
+                });
+            });
+        }());
+    </script>
+}

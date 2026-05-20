@@ -195,8 +195,6 @@ C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\wh43in67el-{0}-muycvpuwrr-muycvpuwrr.gz
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\znq9qgkhk6-{0}-87fc7y1x7t-87fc7y1x7t.gz
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\g38sge6kve-{0}-mlv21k5csn-mlv21k5csn.gz
-C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\i4ugamr0c0-{0}-pjvc1b4u3r-pjvc1b4u3r.gz
-C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\gzdmv85egj-{0}-pjvc1b4u3r-pjvc1b4u3r.gz
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\staticwebassets.build.json
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\staticwebassets.build.json.cache
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\staticwebassets.development.json
@@ -210,7 +208,9 @@ C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\ref\Gathered News.dll
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\wxcl13f9re-{0}-3kg08mexri-3kg08mexri.gz
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\Gathered News.sourcelink.json
-C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
-C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\1my8n90ni7-{0}-eusjvxwxo5-eusjvxwxo5.gz
-C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\hp0y9zloy4-{0}-ygero6eq3w-ygero6eq3w.gz
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\lwu6qwyase-{0}-sqicdr28u7-sqicdr28u7.gz
+C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\hp0y9zloy4-{0}-9c9snvwe6t-9c9snvwe6t.gz
+C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\i4ugamr0c0-{0}-jii5o9soap-jii5o9soap.gz
+C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\gzdmv85egj-{0}-jii5o9soap-jii5o9soap.gz
+C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\1my8n90ni7-{0}-ng7ww4dede-ng7ww4dede.gz
+C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

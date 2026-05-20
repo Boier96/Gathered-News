@@ -3,20 +3,55 @@
     ViewData["Title"] = "Gathered News";
 }
 
-@section Styles {
-    <link rel="stylesheet" href="~/css/lanes.css" asp-append-version="true" />
-}
-
 <header class="site-header">
-    <div class="site-logo">Gathered<span>.</span></div>
+    <a asp-controller="Home" asp-action="Index" class="site-logo site-logo-link">Gathered<span>.</span></a>
+    <div class="header-nav">
+        <a asp-controller="Home" asp-action="Index">News</a>
+        <a asp-controller="Archive" asp-action="Index">Archive</a>
+        @if (Model.IsAuthenticated)
+        {
+            <form asp-controller="Account" asp-action="Logout" method="post" class="inline-form">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="link-button">Logout</button>
+            </form>
+        }
+        else
+        {
+            <a asp-controller="Account" asp-action="Login">Login</a>
+            <a asp-controller="Account" asp-action="Register">Create account</a>
+        }
+    </div>
     <div class="header-meta" id="header-date"></div>
 </header>
 
 <div class="main-layout">
-
     <aside class="sidebar sidebar-left">
-        <div class="sidebar-section-label">Filters</div>
-        <p class="settings-placeholder">filters n shi.</p>
+        <div class="sidebar-section-label">Account</div>
+        @if (Model.IsAuthenticated)
+        {
+            <div class="account-summary">
+                <div class="account-name">@Model.UserName</div>
+                <div class="account-meta">@Model.ArchivedCount archived articles</div>
+                <div class="account-actions">
+                    <a asp-controller="Archive" asp-action="Index">Go to archive</a>
+                    <form asp-controller="Account" asp-action="Logout" method="post" class="inline-form">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="link-button">Logout</button>
+                    </form>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="account-summary">
+                <div class="account-name">Guest reader</div>
+                <div class="account-meta">Create an account to save articles.</div>
+                <div class="account-actions">
+                    <a asp-controller="Account" asp-action="Login">Login</a>
+                    <a asp-controller="Account" asp-action="Register">Register</a>
+                </div>
+            </div>
+        }
     </aside>
 
     <div class="lane-wrapper" id="lane-left">
@@ -62,14 +97,23 @@
     <aside class="sidebar sidebar-right">
         <div class="profile-block">
             <div class="profile-avatar" id="profile-avatar"></div>
-            <div class="profile-username" id="profile-username">Reader</div>
+            <div class="profile-username" id="profile-username">@(Model.IsAuthenticated ? Model.UserName : "Reader")</div>
+        </div>
+        <div class="sidebar-section-label">Navigation</div>
+        <div class="account-actions account-actions-vertical">
+            <a asp-controller="Home" asp-action="Index">News</a>
+            <a asp-controller="Archive" asp-action="Index">Archive</a>
+            @if (!Model.IsAuthenticated)
+            {
+                <a asp-controller="Account" asp-action="Login">Login</a>
+                <a asp-controller="Account" asp-action="Register">Create account</a>
+            }
         </div>
         <div class="sidebar-section-label">Recently Visited</div>
         <div class="recent-list" id="recent-list">
             <span class="settings-placeholder">No articles visited yet.</span>
         </div>
     </aside>
-
 </div>
 
 <div class="overlay" id="article-overlay">
@@ -83,6 +127,18 @@
             <div class="outlet-stats"></div>
         </div>
         <div class="overlay-content">
+            <div class="overlay-actions">
+                @if (Model.IsAuthenticated)
+                {
+                    <button type="button" class="archive-button" id="archive-toggle">Archive article</button>
+                    <span class="archive-status" id="archive-status"></span>
+                }
+                else
+                {
+                    <a asp-controller="Account" asp-action="Login" class="archive-button archive-button-link">Login to archive</a>
+                }
+            </div>
+            @Html.AntiForgeryToken()
             <img class="overlay-image" src="" alt="" />
             <h1 class="overlay-title"></h1>
             <div class="overlay-body"></div>

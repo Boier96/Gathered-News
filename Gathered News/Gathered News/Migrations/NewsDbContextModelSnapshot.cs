@@ -17,6 +17,58 @@ namespace Gathered_News.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.8");
 
+            modelBuilder.Entity("Gathered_News.Models.ApplicationUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserName")
+                        .IsUnique();
+
+                    b.ToTable("AppUsers", (string)null);
+                });
+
+            modelBuilder.Entity("Gathered_News.Models.ArchivedArticle", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("ArchivedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("ArticleId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArticleId");
+
+                    b.HasIndex("UserId", "ArticleId")
+                        .IsUnique();
+
+                    b.ToTable("ArchivedArticles", (string)null);
+                });
+
             modelBuilder.Entity("Gathered_News.Models.ArticleModel", b =>
                 {
                     b.Property<int>("Id")
@@ -60,7 +112,26 @@ namespace Gathered_News.Migrations
                     b.HasIndex("Url")
                         .IsUnique();
 
-                    b.ToTable("Articles");
+                    b.ToTable("Articles", (string)null);
+                });
+
+            modelBuilder.Entity("Gathered_News.Models.ArchivedArticle", b =>
+                {
+                    b.HasOne("Gathered_News.Models.ArticleModel", "Article")
+                        .WithMany()
+                        .HasForeignKey("ArticleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Gathered_News.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Article");
+
+                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

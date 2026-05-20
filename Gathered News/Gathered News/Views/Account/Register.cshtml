@@ -1,0 +1,39 @@
+@model Gathered_News.ViewModels.RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="auth-page">
+    <div class="auth-card">
+        <div class="site-logo auth-logo">Gathered<span>.</span></div>
+        <h1>Create account</h1>
+        <p>Make an account to archive articles and come back to them later.</p>
+
+        <form asp-action="Register" method="post" class="auth-form">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+            <label asp-for="UserName"></label>
+            <input asp-for="UserName" />
+            <span asp-validation-for="UserName" class="field-error"></span>
+
+            <label asp-for="Password"></label>
+            <input asp-for="Password" />
+            <span asp-validation-for="Password" class="field-error"></span>
+
+            <label asp-for="ConfirmPassword"></label>
+            <input asp-for="ConfirmPassword" />
+            <span asp-validation-for="ConfirmPassword" class="field-error"></span>
+
+            <button type="submit" class="primary-button">Create account</button>
+        </form>
+
+        <div class="auth-links">
+            <a asp-action="Login">Already have an account?</a>
+            <a asp-controller="Home" asp-action="Index">Back to news</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
