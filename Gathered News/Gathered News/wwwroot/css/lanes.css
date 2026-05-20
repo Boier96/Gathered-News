@@ -38,7 +38,6 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-    /* Article & archive pages need vertical scroll */
     html:has(.article-page),
     body:has(.article-page) {
         overflow-y: auto;
@@ -250,7 +249,7 @@ body {
 }
 
     .lane-inner.paused {
-        animation-play-state: paused !important; /* this is truly important (: */
+        animation-play-state: paused !important;
     }
 
     .lane-inner.scroll-up {

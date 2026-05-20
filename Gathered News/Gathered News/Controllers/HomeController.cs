@@ -15,6 +15,9 @@ namespace Gathered_News.Controllers
             _db = db;
         }
 
+        // the logic for which articles to place in the "lanes"
+        // looks for articles within the last 24 hours first, but if it fails, just picks the last 40 articles
+        // also ensures that if possible, articles should be split up by outlets
         public async Task<IActionResult> Index()
         {
             var cutoff = DateTime.UtcNow.AddHours(-24);
@@ -63,6 +66,8 @@ namespace Gathered_News.Controllers
             });
         }
 
+        // full article view, returns if user has archived this article
+
         [HttpGet]
         public async Task<IActionResult> Article(int id, string? returnUrl = null)
         {
@@ -97,6 +102,7 @@ namespace Gathered_News.Controllers
             return View(article);
         }
 
+        // JSON endpoint for loading of article
         [HttpGet]
         public async Task<IActionResult> GetArticle(int id)
         {
@@ -151,6 +157,7 @@ namespace Gathered_News.Controllers
             return int.TryParse(idValue, out var id) ? id : null;
         }
 
+        // groups by source, then picks one from each group, spreading out articles across sources
         private static List<ArticleCardViewModel> SpreadByOutlet(List<ArticleCardViewModel> articles)
         {
             var groups = articles

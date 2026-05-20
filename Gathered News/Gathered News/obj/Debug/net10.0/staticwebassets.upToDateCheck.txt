@@ -1,6 +1,4 @@
-wwwroot\css\lanes.css
 wwwroot\favicon.ico
-wwwroot\js\lanes.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
@@ -61,8 +59,9 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\css\lanes.css
+wwwroot\js\lanes.js
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\wwwroot\favicon.ico
-C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\wwwroot\js\lanes.js
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
@@ -123,3 +122,4 @@ C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\wwwroot\lib\jquery
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\wwwroot\lib\jquery\dist\jquery.slim.min.map
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\wwwroot\lib\jquery\LICENSE.txt
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\wwwroot\css\lanes.css
+C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\wwwroot\js\lanes.js

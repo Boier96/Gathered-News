@@ -27,6 +27,8 @@ namespace Gathered_News.Controllers
             return View(new LoginViewModel { ReturnUrl = returnUrl });
         }
 
+        // processes login form
+        // validates username/password, signs in and redirects
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
@@ -63,6 +65,8 @@ namespace Gathered_News.Controllers
             return View(new RegisterViewModel());
         }
 
+        // processes register page
+        // creates user, hashes password, signs them in, and redirects
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel model)
@@ -99,6 +103,8 @@ namespace Gathered_News.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        // creates ClaimsPrincipal for user signs them in using cookie auth
+        // principal carries userid and username
         private async Task SignInAsync(ApplicationUser user, bool rememberMe)
         {
             var claims = new List<Claim>

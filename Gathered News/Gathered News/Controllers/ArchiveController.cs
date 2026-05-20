@@ -18,6 +18,7 @@ namespace Gathered_News.Controllers
             _db = db;
         }
 
+        // displays all archived articles, sorts by when added
         [HttpGet]
         public async Task<IActionResult> Index()
         {
@@ -47,6 +48,8 @@ namespace Gathered_News.Controllers
             });
         }
 
+        // toggles archive status of article
+        // returns JSON to indicate new archived state
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Toggle(int articleId)

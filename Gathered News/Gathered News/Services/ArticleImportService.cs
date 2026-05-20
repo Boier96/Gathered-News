@@ -24,6 +24,8 @@ namespace Gathered_News.Services
             _logger = logger;
         }
 
+        // entry point, reads JSON file from folder (set in appsettings as ScraperJsonFolder), parses articles
+        // deduplicates against database, inserts new articles in transaction
         public async Task SeedAsync(CancellationToken cancellationToken = default)
         {
             var relativeFolder = _config["ScraperJsonFolder"] ?? "webscraperTesting";
@@ -145,6 +147,8 @@ namespace Gathered_News.Services
             _logger.LogInformation("completed successfully.");
         }
 
+        // attempts parse single JSON element, casting to article
+        // compares elements to "importable candiate" check
         private void TryAddArticle(List<StagedArticle> articles, JsonElement element, string filePath)
         {
             var source = GetString(element, "source") ?? Path.GetFileNameWithoutExtension(filePath);
@@ -184,6 +188,9 @@ namespace Gathered_News.Services
             articles.Add(new StagedArticle(dedupKey, article));
         }
 
+        // builds representation of content field
+        // if arrau of strs, join w double newL
+        // if single str, use directly
         private static string? BuildContentText(JsonElement element)
         {
             if (!element.TryGetProperty("content", out var contentProp))
@@ -251,6 +258,8 @@ namespace Gathered_News.Services
             await _db.SaveChangesAsync(cancellationToken);
         }
 
+        // true if data could be real article
+        // filters are incomplete, if non-articles make it into db please add that function
         private static bool IsImportableCandidate(string? source, string? url, string? title)
         {
             if (string.IsNullOrWhiteSpace(title))
@@ -314,6 +323,8 @@ namespace Gathered_News.Services
             "/sitemap"
         };
 
+        // deduplication key, prefers URL, falls back to source/title
+        // rtrns null if fields empty
         private static string? BuildDedupKey(string? url, string? source, string? title)
         {
             if (!string.IsNullOrWhiteSpace(url))

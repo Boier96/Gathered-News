@@ -209,8 +209,8 @@ C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\wxcl13f9re-{0}-3kg08mexri-3kg08mexri.gz
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\Gathered News.sourcelink.json
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\lwu6qwyase-{0}-sqicdr28u7-sqicdr28u7.gz
-C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\hp0y9zloy4-{0}-9c9snvwe6t-9c9snvwe6t.gz
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\i4ugamr0c0-{0}-jii5o9soap-jii5o9soap.gz
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\gzdmv85egj-{0}-jii5o9soap-jii5o9soap.gz
-C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\1my8n90ni7-{0}-ng7ww4dede-ng7ww4dede.gz
 C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\1my8n90ni7-{0}-ql0m0quajo-ql0m0quajo.gz
+C:\Users\lumit\Desktop\WebScraper\Gathered News\Gathered News\obj\Debug\net10.0\compressed\hp0y9zloy4-{0}-tvukjdfq64-tvukjdfq64.gz

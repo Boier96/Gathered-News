@@ -1,41 +1,41 @@
 ﻿(function () {
-    // define some variables (allegedly)
     'use strict';
 
     var SCROLL_SPEED = 104;
 
+    // static information about each outlet we use right now, used when showing the full-view of an article (both in overlay and in the seperate page)
     var OUTLET_INFO = {
         bbc: {
             name: 'BBC News',
-            description: 'brihis.',
+            description: 'British public service broadcaster, founded by Royal Charter. Known for impartial international reporting.',
             founded: '1922',
             hq: 'London, UK',
             reach: 'Global'
         },
         aljazeera: {
             name: 'Al Jazeera',
-            description: 'middle-eastern sauce.',
+            description: 'Qatari state-funded international news network. Provides extensive coverage of the Middle East and Global South.',
             founded: '1996',
             hq: 'Doha, Qatar',
             reach: 'Global'
         },
         dw: {
             name: 'Deutsche Welle',
-            description: "deutchlnader.",
+            description: "Germany\'s international public broadcaster. Offers news in over 30 languages with a focus on European affairs.",
             founded: '1953',
             hq: 'Bonn, Germany',
             reach: 'Global'
         },
         cbc: {
             name: 'CBC News',
-            description: "MAple Zyrup.",
+            description: "Canada\'s national public broadcaster. Covers Canadian politics, society, and international news.",
             founded: '1936',
             hq: 'Ottawa, Canada',
             reach: 'Canada / International'
         },
         guardian: {
             name: 'The Guardian',
-            description: 'not ass brihihs.',
+            description: 'Independent British newspaper with a progressive editorial stance. Renowned for investigative journalism.',
             founded: '1821',
             hq: 'London, UK',
             reach: 'Global'
@@ -45,6 +45,7 @@
     var RECENT_STORAGE_KEY = 'gn_recent';
     var RECENT_MAX = 8;
 
+    // returns the recently visited articles
     function getRecent() {
         try {
             return JSON.parse(localStorage.getItem(RECENT_STORAGE_KEY) || '[]');
@@ -53,12 +54,14 @@
         }
     }
 
+    // saves an article to localstorage
     function saveRecent(list) {
         try {
-            localStorage.setItem(RECENT_STORAGE_KEY, JSON.stringify(list)); // never has so much been carrried by so few localstorages
+            localStorage.setItem(RECENT_STORAGE_KEY, JSON.stringify(list));
         } catch (e) { }
     }
 
+    // call this function to add to recently viewed
     function pushRecent(article) {
         var list = getRecent();
         list = list.filter(function (r) { return r.id !== article.id; });
@@ -73,6 +76,7 @@
         renderRecent();
     }
 
+    // creates the recently viewed section
     function renderRecent() {
         var list = document.getElementById('recent-list');
         if (!list) return;
@@ -80,7 +84,7 @@
         var recent = getRecent();
 
         if (recent.length === 0) {
-            list.innerHTML = '<span class="settings-placeholder">No articles visited yet.</span>'; // magically set allat HYPErTEXtMARKUpLANGUAGe
+            list.innerHTML = '<span class="settings-placeholder">No articles visited yet.</span>';
             return;
         }
 
@@ -96,7 +100,7 @@
         list.innerHTML = html;
 
         list.querySelectorAll('.recent-item').forEach(function (el) {
-            el.addEventListener('click', function () { // listen to me, I am the click now
+            el.addEventListener('click', function () {
                 var id = parseInt(this.dataset.articleId, 10);
                 var match = getRecent().find(function (r) { return r.id === id; });
                 if (match) {
@@ -106,7 +110,8 @@
         });
     }
 
-    function escapeHtml(str) { // stop putting arrows in your text gurt
+    // added to prvevent XSS
+    function escapeHtml(str) {
         return String(str)
             .replace(/&/g, '&amp;')
             .replace(/</g, '&lt;')
@@ -114,6 +119,8 @@
             .replace(/"/g, '&quot;');
     }
 
+    // works like this: clones all article cards insdide the inner container, applies the CSS animation whose duration is calculated from content height and scroll speed.
+    // result is a seamless loop
     function initLane(wrapperId, innerId, direction) {
         var wrapper = document.getElementById(wrapperId);
         var inner = document.getElementById(innerId);
@@ -129,7 +136,7 @@
         attachCardClicks(inner);
 
         requestAnimationFrame(function () { // there seems to be some issue with the time it takes to init the other things
-            requestAnimationFrame(function () { // thus we call it twice, giving it more time, which is dirty and not good, but hasn't failed yet
+            requestAnimationFrame(function () { // thus we call it twice, giving it more time, which feels unoptimal but apparently normal according to stackoverflow
                 var halfH = inner.scrollHeight / 2;
                 var duration = halfH / SCROLL_SPEED;
                 inner.style.animationDuration = duration + 's';
@@ -155,6 +162,7 @@
         });
     }
 
+    // DOM elements
     var overlay = null;
     var overlayPanel = null;
     var overlayClose = null;
@@ -163,10 +171,10 @@
     var requestToken = null;
     var currentFetch = null;
 
+    // opens article overlay, fetches the full article data from server
     function openOverlay(id, fallbackUrl) {
         overlay.classList.add('active');
 
-        // gimme allat
         var titleEl = overlay.querySelector('.overlay-title');
         var bodyEl = overlay.querySelector('.overlay-body');
         var imgEl = overlay.querySelector('.overlay-image');
@@ -175,7 +183,6 @@
         var outletDescEl = overlay.querySelector('.outlet-desc');
         var outletStatsEl = overlay.querySelector('.outlet-stats');
 
-        // there is a tendency to tweak
         titleEl.textContent = '';
         bodyEl.innerHTML = '<span class="overlay-loading">loading...</span>';
         imgEl.style.display = 'none';
@@ -193,24 +200,24 @@
         var controller = new AbortController();
         currentFetch = controller;
 
-        fetch('/Home/GetArticle/' + id, { signal: controller.signal }) // fetch my cup peasant
+        fetch('/Home/GetArticle/' + id, { signal: controller.signal }) // using promises to handle potential slow loading of article data
             .then(function (res) {
                 if (!res.ok) throw new Error('not found');
                 return res.json();
             })
-            .then(function (article) { // ever heard about a promise?
+            .then(function (article) {
                 currentFetch = null;
 
                 var sourceKey = (article.source || '').toLowerCase();
                 var info = OUTLET_INFO[sourceKey] || {
                     name: article.source,
-                    description: 'type shit.',
-                    founded: 'if ur seeing',
-                    hq: 'all this',
-                    reach: 'ur cooked'
+                    description: 'No description available.',
+                    founded: 'Unknown',
+                    hq: 'Unknown',
+                    reach: 'Unknown'
                 };
 
-                outletNameEl.textContent = info.name; // set the stats n shi
+                outletNameEl.textContent = info.name;
                 outletDescEl.textContent = info.description;
                 outletStatsEl.innerHTML = [
                     ['Founded', info.founded],
@@ -251,7 +258,7 @@
                         return '<p>' + escapeHtml(p) + '</p>';
                     }).join('');
                 } else {
-                    bodyEl.innerHTML = '<p class="overlay-loading">ur article sucks gurt</p>';
+                    bodyEl.innerHTML = '<p class="overlay-loading">No article content available.</p>';
                 }
 
                 overlayPanel.scrollTop = 0;
@@ -265,7 +272,7 @@
             })
             .catch(function (err) {
                 if (err.name === 'AbortError') return;
-                bodyEl.innerHTML = '<p class="overlay-loading">we couldnt load allat cuz</p>';
+                bodyEl.innerHTML = '<p class="overlay-loading">Could not load the article.</p>';
             });
     }
 
@@ -277,6 +284,7 @@
         }
     }
 
+    // sets avatar element to first letter of username, stole the idea from Zika
     function initProfile() {
         var usernameEl = document.getElementById('profile-username');
         var avatarEl = document.getElementById('profile-avatar');
@@ -287,6 +295,7 @@
         if (avatarEl) avatarEl.textContent = stored.charAt(0).toUpperCase();
     }
 
+    // uses the ASP.NET Core antiforgery token, result is cached after first call to avoid repeated DOM lookups
     function getToken() {
         if (requestToken) return requestToken;
         var tokenInput = document.querySelector('input[name="__RequestVerificationToken"]');
@@ -294,6 +303,7 @@
         return requestToken;
     }
 
+    // sends POSt request to /Archive/Toggle to add/remove current article from user's archive, no page reload required
     function toggleArchive() {
         if (!archiveToggle) return;
         var articleId = archiveToggle.dataset.articleId;
@@ -317,6 +327,7 @@
             });
     }
 
+    // formats current date
     function initHeaderDate() {
         var el = document.getElementById('header-date');
         if (!el) return;
@@ -326,7 +337,9 @@
         el.textContent = days[now.getDay()] + ', ' + months[now.getMonth()] + ' ' + now.getDate() + ' ' + now.getFullYear();
     }
 
-    document.addEventListener('DOMContentLoaded', function () { // master
+
+    // main init, runs after the DOM is fully parsed, this makes everything else happen
+    document.addEventListener('DOMContentLoaded', function () {
         overlay = document.getElementById('article-overlay');
         overlayPanel = overlay ? overlay.querySelector('.overlay-panel') : null;
         overlayClose = document.getElementById('overlay-close');
